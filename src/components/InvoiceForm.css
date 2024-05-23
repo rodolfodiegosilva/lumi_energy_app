@@ -1,0 +1,37 @@
+.invoice-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .invoice-form h2 {
+    margin-bottom: 1rem;
+    color: var(--first-color);
+  }
+  
+  .invoice-form input[type="file"] {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--first-color);
+  }
+  
+  .invoice-form button {
+    background-color: var(--first-color);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .invoice-form button:hover {
+    background-color: #2980b9;
+  }
+  
