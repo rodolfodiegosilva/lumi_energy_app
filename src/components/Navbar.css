@@ -1,34 +1,72 @@
+/* Navbar.css */
+
 .header {
-    background-color: #f8f8f8;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav__toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__item {
+  margin-left: 1rem;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+.nav__link:hover {
+  color: #007bff;
+}
+
+/* Media query for responsive navbar */
+@media (max-width: 768px) {
+  .nav__toggle {
+    display: block;
   }
-  
-  .nav__logo {
-    font-size: 1.5rem;
-    color: var(--first-color);
-    text-decoration: none;
-  }
-  
+
   .nav__list {
-    list-style: none;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: calc(var(--header-height) + 1rem); /* Ajuste conforme necessário */
+    left: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+    padding-bottom: 1rem;
+  }
+
+  .nav__list.nav__list--open {
     display: flex;
-    gap: 20px;
   }
-  
+
   .nav__item {
-    font-size: 1rem;
+    margin: 0.5rem 0;
   }
-  
-  .nav__link {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .nav__link:hover {
-    color: var(--first-color);
-  }
-  
+}

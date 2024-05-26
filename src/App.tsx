@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import InvoiceForm from "./components/InvoiceForm";
@@ -8,10 +8,16 @@ import InvoiceLibrary from "./components/InvoiceLibrary";
 import './App.css';
 
 const App: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
-      <Navbar />
-      <main className="main-content">
+      <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <main className={`main-content ${isMenuOpen ? 'content--menu-open' : ''}`}>
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/invoices" element={<InvoiceList />} />
@@ -24,4 +30,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App; 
+export default App;

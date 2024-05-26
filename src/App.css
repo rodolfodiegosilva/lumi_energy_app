@@ -1,5 +1,14 @@
+/* App.css */
+
 .main-content {
   padding-top: calc(var(--header-height) + 2rem);
   padding-left: 2rem;
   padding-right: 2rem;
+  transition: padding-top 0.3s ease; /* Adicionando uma transição suave */
 }
+
+.content--menu-open {
+  padding-top: calc(var(--header-height) + 8rem); /* Ajuste conforme necessário para o menu aberto */
+}
+
+/* Outros estilos existentes */
