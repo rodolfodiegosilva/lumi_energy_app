@@ -19,7 +19,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const Dashboard: React.FC = () => {
   const [invoices, setInvoices] = useState<any[]>([]);
   const [clientNumbers, setClientNumbers] = useState<string[]>([]);
-  const [selectedClientNumber, setSelectedClientNumber] = useState<string>("");
+  const [selectedClientNumber, setSelectedClientNumber] = useState<string>('');
   const [filteredInvoices, setFilteredInvoices] = useState<any[]>([]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
         setFilteredInvoices(invoicesData); // Inicialmente mostra todos os dados
       })
       .catch(error => {
-        console.error("There was an error fetching the invoices!", error);
+        console.error('There was an error fetching the invoices!', error);
       });
   }, []);
 
@@ -99,16 +99,16 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <div className="dashboard">
-      <Typography variant="h2">Dashboard</Typography>
-      <FormControl className="form-control">
-        <InputLabel id="clientNumber-select-label">Client Number</InputLabel>
+    <div className='dashboard'>
+      <Typography variant='h2'>Dashboard</Typography>
+      <FormControl className='form-control'>
+        <InputLabel id='clientNumber-select-label'>Client Number</InputLabel>
         <Select
-          labelId="clientNumber-select-label"
+          labelId='clientNumber-select-label'
           value={selectedClientNumber}
           onChange={handleChange}
         >
-          <MenuItem value="">
+          <MenuItem value=''>
             All Clients
           </MenuItem>
           {clientNumbers.map(clientNumber => (
@@ -120,15 +120,15 @@ const Dashboard: React.FC = () => {
       </FormControl>
 
       {filteredInvoices.length > 0 && (
-        <div className="charts">
-          <div className="chart-container">
+        <div className='charts'>
+          <div className='chart-container'>
             <Line 
-              data={getChartData(filteredInvoices, ["energyConsumption", "sceeEnergy"], ["Energy Consumption (kWh)", "Compensated Energy (kWh)"], energyChartColors)} 
+              data={getChartData(filteredInvoices, ['energyConsumption', 'sceeEnergy'], ['Energy Consumption (kWh)', 'Compensated Energy (kWh)'], energyChartColors)} 
             />
           </div>
-          <div className="chart-container">
+          <div className='chart-container'>
             <Line 
-              data={getChartData(filteredInvoices, ["totalCost", "gdCost"], ["Total Cost (R$)", "GD Savings (R$)"], costChartColors, ['y', 'y1'])} 
+              data={getChartData(filteredInvoices, ['totalCost', 'gdCost'], ['Total Cost (R$)', 'GD Savings (R$)'], costChartColors, ['y', 'y1'])} 
               options={{
                 scales: {
                   y: {

@@ -38,32 +38,32 @@ const InvoiceForm: React.FC = () => {
   };
 
   return (
-    <div className="invoice-form">
-      <Typography variant="h4" gutterBottom>
+    <div className='invoice-form'>
+      <Typography variant='h4' gutterBottom>
         Upload Invoice
       </Typography>
       <input
-        accept="application/pdf"
+        accept='application/pdf'
         style={{ display: 'none' }}
-        id="raised-button-file"
-        type="file"
+        id='raised-button-file'
+        type='file'
         onChange={handleFileChange}
       />
-      <label htmlFor="raised-button-file">
-        <Button variant="contained" component="span">
+      <label htmlFor='raised-button-file'>
+        <Button variant='contained' component='span'>
           Choose File
         </Button>
       </label>
       <TextField
         disabled
-        variant="outlined"
-        margin="normal"
+        variant='outlined'
+        margin='normal'
         fullWidth
         value={selectedFile ? selectedFile.name : 'No file chosen'}
       />
       <Button
-        variant="contained"
-        color="primary"
+        variant='contained'
+        color='primary'
         onClick={handleUpload}
         disabled={!selectedFile}
         className={selectedFile ? 'enabled-button' : ''}
@@ -71,7 +71,7 @@ const InvoiceForm: React.FC = () => {
         Upload
       </Button>
       {uploadStatus && (
-        <Typography variant="body1" gutterBottom>
+        <Typography variant='body1' gutterBottom>
           {uploadStatus}
         </Typography>
       )}
