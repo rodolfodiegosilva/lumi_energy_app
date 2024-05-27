@@ -6,7 +6,7 @@ import './InvoiceLibrary.css';
 const InvoiceLibrary: React.FC = () => {
   const [invoices, setInvoices] = useState<any[]>([]);
   const [clientNumbers, setClientNumbers] = useState<string[]>([]);
-  const [selectedClientNumber, setSelectedClientNumber] = useState<string>("");
+  const [selectedClientNumber, setSelectedClientNumber] = useState<string>('');
   const [filteredInvoices, setFilteredInvoices] = useState<any[]>([]);
 
   // Fetch invoices and extract unique client numbers
@@ -20,7 +20,7 @@ const InvoiceLibrary: React.FC = () => {
         setFilteredInvoices(invoicesData); // Inicialmente mostra todos os dados
       })
       .catch(error => {
-        console.error("There was an error fetching the invoices!", error);
+        console.error('There was an error fetching the invoices!', error);
       });
   }, []);
 
@@ -59,16 +59,16 @@ const InvoiceLibrary: React.FC = () => {
   };
 
   return (
-    <div className="invoice-library">
-      <Typography variant="h2">Invoice Library</Typography>
-      <FormControl className="form-control">
-        <InputLabel id="clientNumber-select-label">Client Number</InputLabel>
+    <div className='invoice-library'>
+      <Typography variant='h2'>Invoice Library</Typography>
+      <FormControl className='form-control'>
+        <InputLabel id='clientNumber-select-label'>Client Number</InputLabel>
         <Select
-          labelId="clientNumber-select-label"
+          labelId='clientNumber-select-label'
           value={selectedClientNumber}
           onChange={handleChange}
         >
-          <MenuItem value="">
+          <MenuItem value=''>
             All Clients
           </MenuItem>
           {clientNumbers.map(clientNumber => (
@@ -81,12 +81,12 @@ const InvoiceLibrary: React.FC = () => {
 
       <List>
         {filteredInvoices.map(invoice => (
-          <ListItem key={invoice.id} className="invoice-item">
+          <ListItem key={invoice.id} className='invoice-item'>
             <ListItemText
               primary={`Client: ${invoice.clientNumber} - Month: ${invoice.referenceMonth}`}
               secondary={`Total Cost: R$ ${invoice.totalCost}`}
             />
-            <Button variant="contained" color="primary" onClick={() => handleDownload(invoice)}>
+            <Button variant='contained' color='primary' onClick={() => handleDownload(invoice)}>
               Download
             </Button>
           </ListItem>
